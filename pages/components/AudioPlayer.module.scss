@@ -1,0 +1,19 @@
+
+.audioPlayer {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.seek {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.sleekSlider {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
