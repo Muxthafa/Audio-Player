@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useState } from 'react'
-import AudioPlayer from './components/AudioPlayer'
+import AudioPlayer from '../components/AudioPlayer'
 
 const inter = Inter({ subsets: ['latin'] })
 
