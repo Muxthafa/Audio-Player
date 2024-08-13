@@ -20,7 +20,7 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <button onClick={()=> setShowAudioDrawer((prev) => !prev)}>Play Audio</button>
         <div className={styles.description}>
-          {showAudioDrawer && <AudioPlayer />}
+          {showAudioDrawer && <AudioPlayer sourceLink={'https://onlinetestcase.com/wp-content/uploads/2023/06/10-MB-MP3.mp3'}/>}
         </div>
       </main>
     </>
