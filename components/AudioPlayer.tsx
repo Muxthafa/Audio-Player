@@ -31,20 +31,25 @@ const AudioPlayer = ({sourceLink}:{sourceLink: string}) => {
 
   useEffect(() => {
       const fetchAudio = async () => {
-        let audioBlob = await retrieveAudioFile(sourceLink);
-  
-        if (!audioBlob) {
-          const response = await fetch(sourceLink);
-          audioBlob = await response.blob();
-          console.log('audioBlob first time',audioBlob);
-          
-          await storeAudioFile(sourceLink, audioBlob);
-        }else{
-          console.log('audioBlob second time',audioBlob);
+        try {
+          let audioBlob = await retrieveAudioFile(sourceLink);
+      
+          if (!audioBlob) {
+            const response = await fetch(sourceLink);
+            audioBlob = await response.blob();
+            console.log('audioBlob first time', audioBlob);
+      
+            await storeAudioFile(sourceLink, audioBlob);
+          } else {
+            console.log('audioBlob second time', audioBlob);
+          }
+      
+          const url = URL.createObjectURL(audioBlob);
+          setAudioUrl(url);
+        } catch (error) {
+          console.error('Error fetching or storing audio:', error);
+          // Handle the error accordingly, e.g., show a message to the user
         }
-  
-        const url = URL.createObjectURL(audioBlob);
-        setAudioUrl(url);
       };
   
       fetchAudio();

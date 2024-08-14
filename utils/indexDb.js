@@ -43,8 +43,6 @@ export const retrieveAudioFile = async (url) => {
   const tx = db.transaction(storeName, "readonly");
   const store = tx.objectStore(storeName);
 
-  //   const result = await store.get(url);
-
   return new Promise((resolve, reject) => {
     const request = store.get(url);
 
