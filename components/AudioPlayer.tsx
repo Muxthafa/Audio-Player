@@ -35,7 +35,12 @@ const AudioPlayer = ({sourceLink}:{sourceLink: string}) => {
           let audioBlob = await retrieveAudioFile(sourceLink);
       
           if (!audioBlob) {
-            const response = await fetch(sourceLink);
+            const response = await fetch(sourceLink,{
+              method: 'GET',
+              headers: {
+                'content-type': 'audio/mpeg' // or 'audio/wav', 'audio/ogg' depending on the file type
+              }
+            });
             audioBlob = await response.blob();
             console.log('audioBlob first time', audioBlob);
       
